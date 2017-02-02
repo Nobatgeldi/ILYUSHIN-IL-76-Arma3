@@ -10,6 +10,8 @@ ILYUSHIN IL-76 transport aircraft mod for ArmA3
 | Il-76MD       | Russian AF    | Ru.BBC |
 
 #
+Can carry 70 soldiers, 1 vehicle and can drop them when flying(parachute)
+#
 [Download](https://www.google.com)
 #
 Turkmenistan Airline EZ-F428
