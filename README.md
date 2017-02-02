@@ -12,6 +12,8 @@ ILYUSHIN IL-76 transport aircraft mod for ArmA3
 #
 Can carry 70 soldiers, 1 vehicle and can drop them when flying(parachute)
 #
+[![](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=K6922R75JMFTS)
+#
 [Download](https://codeload.github.com/Nobatgeldi/ILYUSHIN-IL-76-Arma3/zip/master)
 #
 Turkmenistan Airline EZ-F428
