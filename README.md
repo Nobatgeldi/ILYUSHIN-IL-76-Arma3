@@ -15,10 +15,10 @@ Can carry 70 soldiers, 1 vehicle and can drop them when flying(parachute)
 [Download](https://www.google.com)
 #
 Turkmenistan Airline EZ-F428
--![GitHub Logo](http://arma3.nobatgeldi.com/images/il_76/363)
+![GitHub Logo](http://arma3.nobatgeldi.com/images/il_76/363)
 # ILYUSHIN
 Russain AirForce
--![GitHub Logo](http://arma3.nobatgeldi.com/images/il_76/512)
+![GitHub Logo](http://arma3.nobatgeldi.com/images/il_76/512)
 # ILYUSHIN
 Indian AirForce
--![GitHub Logo](http://arma3.nobatgeldi.com/images/il_76/942)
+![GitHub Logo](http://arma3.nobatgeldi.com/images/il_76/942)
