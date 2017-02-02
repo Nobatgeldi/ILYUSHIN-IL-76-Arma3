@@ -1,0 +1,15 @@
+_il76 = _this select 0
+
+_il76 say "il76tdramp"
+_il76 animate ["RC_door_back_down",0]
+~1
+_il76 animate ["RC_door_back",0]
+_il76 animate ["RC_door1",0]
+_il76 animate ["RC_door",0]
+~2
+_il76 animate ["RC_door2",0]
+~3
+_il76 animate ["RC_door3",0]
+_il76 animate ["RC_door4",0]
+
+exit
