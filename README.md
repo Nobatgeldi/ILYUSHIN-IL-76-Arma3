@@ -1,6 +1,15 @@
 # ILYUSHIN-IL-76-Arma3
 ILYUSHIN IL-76 transport aircraft mod for ArmA3
 #
+| Types         | Are           | Number   |
+| ------------- |:-------------:| --------:|
+| Il-76TD       | TKM Airline   | EZ-F428  |
+| Il-76TD       | Indian AF     |   K377   |
+| Il-76MD       | Russian AF    | RA-78840 |
+| Il-76MD       | Russian AF    | RA-78844 |
+| Il-76MD       | Russian AF    | Ru.BBC |
+
+#
 [Download](https://www.google.com)
 #
 Turkmenistan Airline EZ-F428
