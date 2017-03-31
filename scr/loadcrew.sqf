@@ -8,10 +8,10 @@ _count = 4;
 
 for [{_i=0}, {_i<_count}, {_i=_i+1}] do
 {
-	"Sukhoi_Pilot" createunit [getpos _plane, _pilot_grp,"", 0.7, "PRIVATE"];
+	"Sukhoi_Pilot" createUnit [getPos _plane, _pilot_grp,"", 0.7, "PRIVATE"];
 	_tunits = units _pilot_grp;
 	_soldier = _tunits select (count(_tunits) -1);
-	_soldier moveincargo _plane;
+	_soldier moveInCargo _plane;
 };
 
 _plane allowDamage true;

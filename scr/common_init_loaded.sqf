@@ -1,9 +1,9 @@
 _v=_this select 0;
 
-[_v,True] execvm "\il76\scr\RKSLIL76System.sqf";
-[_v] execvm "\il76\scr\Vapour.sqf";
-[_v] execvm "\il76\scr\loadcrew.sqf";
-[_v] execvm "\il76\scr\loadcargo.sqf";
+[_v,true] execVM "\il76\scr\RKSLIL76System.sqf";
+[_v] execVM "\il76\scr\Vapour.sqf";
+[_v] execVM "\il76\scr\loadcrew.sqf";
+[_v] execVM "\il76\scr\loadcargo.sqf";
 
 [_v] exec "\il76\scr\autonumber.sqs";
 

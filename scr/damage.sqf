@@ -1,11 +1,14 @@
 #include "\wop_gui\Data\Scripts\dikCodes.h"
+
+private ["_plane","_sayed", "_vehicle","_notdamaged","_anim","_flag","_gen"];
+
 _plane = _this select 0;
 temp_tire = 0.0;
 tt = 1;
 sleep 0.01;
 _sayed = 0;
-IL76TD_BRAKE=Compile PreProcessFile ("\il76td\scr\brake.sqf");
-IL76TD_BOOST=Compile PreProcessFile ("\il76td\scr\booster.sqf");
+IL76TD_BRAKE=compile preprocessFile ("\il76td\scr\brake.sqf");
+IL76TD_BOOST=compile preprocessFile ("\il76td\scr\booster.sqf");
 /*moduleName_keyDown =
 {
 	private["_handled", "_ctrl", "_dikCode", "_shift", "_ctrl", "_alt"];
@@ -19,7 +22,7 @@ IL76TD_BOOST=Compile PreProcessFile ("\il76td\scr\booster.sqf");
 		nul = [_ctrl,_dikCode,_vehicle] exec "\IL76TD\scr\brake.sqs";
 	};
 };*/
-if (player IN _plane) then
+if (player in _plane) then
 {
 	IL76TD_keyDownEHId = (findDisplay 46) displayAddEventHandler ["KeyDown", "_as = _this Spawn IL76TD_BRAKE"];
 	IL76TD_keyDownEHId2 = (findDisplay 46) displayAddEventHandler ["KeyDown", "_as2 = _this Spawn IL76TD_BOOST"];

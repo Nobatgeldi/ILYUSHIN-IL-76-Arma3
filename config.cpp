@@ -2,6 +2,7 @@
 #include "CfgPatches.hpp"
 //#include "CfgFactionClasses.hpp"
 //#include "CfgVehicleClasses.hpp"
+#include "CfgMovesBasic.hpp"
 #include "CfgSounds.hpp"
 #include "CfgRadio.hpp"
 
@@ -56,15 +57,15 @@ class CfgVehicles
 		side=0;
 		faction = "OPF_F";
 		transportSoldier = 70;
-		crew = "Sukhoi_Pilot";
-		driverAction="pilot";
+		crew = "O_Pilot_F";
+		driverAction="il_76_pilot";
 		cargoAction[]={"Truck_Cargo01"};
     cargoIsCoDriver[] = {1,1};
     hasGunner=1;
 		driverIsCommander = 1;
 		simulation="airplane";
 		_generalMacro="Plane";
-		gunnerAction = "gunner"
+		gunnerAction = "il_76_commander"
 		gunnerOpticsModel = "\il76td\rkt_fencer_optics";
 		gunnerOpticsColor[] = {1, 1, 1, 1};
 		Icon = "\il76td\icons\icon.paa";
@@ -90,7 +91,7 @@ class CfgVehicles
 		textplural="Airplanes";
 		textsingular="Airplane";
 		radartype=4;
-		//memoryPointsGetInDriver = "pos_driver";
+		memoryPointsGetInDriver = "pos_driver";
 		//memoryPointsGetInDriverDir = "pos_driver_dir";
 		class Library {
 			libTextDesc = "$STR_IL_DESCR";
@@ -265,7 +266,7 @@ class CfgVehicles
 		maneuvrability=40.0;
 		landingAoa = "rad 2"//7*3.1415/180//"rad 55";
 		maxSpeed= 950;
-		landingSpeed = 270;
+		landingSpeed = 280;
 		lightongear=1;
 		armor= 65;
 		ejectSpeed[]={0,0,0};
@@ -276,8 +277,6 @@ class CfgVehicles
 
 		type=VAir;
 		threat[]={0.1, 1, 0.7};
-		/*aileronSensitivity = 1.1;
-		elevatorSensitivity = 3.7; */
 
 		aileronSensitivity = 0.4;
 		elevatorSensitivity = 2.2;
@@ -307,8 +306,8 @@ class CfgVehicles
 				viewGunnerShadow = true;
 				opticsZoomMin = 0.01;
 				opticsZoomMax = 0.9;
-				gunnerAction = "pilot";
-				gunnerInAction = "pilot";
+				gunnerAction = "il_76_pilot";
+				gunnerInAction = "il_76_pilot";
 			};
 
 			class Ing1 : MainTurret
@@ -323,8 +322,8 @@ class CfgVehicles
 				magazines[]={};
 				castGunnerShadow = true;
 				viewGunnerShadow = true;
-				gunnerAction = "pilot";
-				gunnerInAction = "pilot";
+				gunnerAction = "il_76_pilot";
+				gunnerInAction = "il_76_pilot";
 				primaryGunner = 0;
 			};
 			class Ing2 : MainTurret
@@ -339,8 +338,8 @@ class CfgVehicles
 				magazines[]={};
 				castGunnerShadow = true;
 				viewGunnerShadow = true;
-				gunnerAction = "pilot";
-				gunnerInAction = "pilot";
+				gunnerAction = "il_76_pilot";
+				gunnerInAction = "il_76_pilot";
 				primaryGunner = 0;
 			};
 			class Ing3 : MainTurret
@@ -355,18 +354,18 @@ class CfgVehicles
 				magazines[]={};
 				castGunnerShadow = true;
 				viewGunnerShadow = true;
-				gunnerAction = "pilot";
-				gunnerInAction = "pilot";
+				gunnerAction = "il_76_pilot";
+				gunnerInAction = "il_76_pilot";
 				primaryGunner = 0;
 			};
 		};
     class EventHandlers
     {
-            Init = "_this execVM ""\il76td\scr\tires.sqf"", _this execVM ""\il76td\scr\damage.sqf"", _this execVM ""\il76td\scr\common_init.sqf""";
-						// _this execVM ""\il76td\scr\damage.sqf"",
+            Init = "_this execVM ""\il76td\scr\tires.sqf"", _this execVM ""\il76td\scr\common_init.sqf""";
+			// _this execVM ""\il76td\scr\damage.sqf"",
             engine = "_this exec ""\il76td\scr\dverclose.sqs""";
             fired = "_this call BIS_Effects_EH_Fired;";
-		      	killed = "_this call BIS_Effects_EH_Killed;";
+		    killed = "_this call BIS_Effects_EH_Killed;";
     };
 
 		class DestructionEffects {};
@@ -864,7 +863,8 @@ class CfgVehicles
 											"\il76td\liveries\78840\w1_t.paa"
 										};
 	};
-/*
+
+    /*
 	class il76td_76413 : il76td
 	{
 		faction = "CIV_UA";
