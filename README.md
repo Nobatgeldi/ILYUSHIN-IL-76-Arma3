@@ -24,3 +24,6 @@ Russain AirForce
 # ILYUSHIN
 Indian AirForce
 ![GitHub Logo](http://arma3.nobatgeldi.com/images/il_76/942)
+#
+Arma 3 game is created by and owned Bohemia Interactive. ILYUSHIN IL-76 mod was created by Nobatgeldi Geldimammedov. Mod Creator and it's author aren't affiliated with Bohemia Interactive. This project is licensed under the MIT License. You don't need to contact me if you want to create derivatives or publish the project elsewhere.
+#
