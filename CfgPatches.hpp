@@ -4,6 +4,6 @@ class CfgPatches
     {
 		units[] = {"il76td"};
 		weapons[] = {};
-		requiredAddons[] = {"wop_gui"};
+		requiredAddons[] = {};
 	};
 };

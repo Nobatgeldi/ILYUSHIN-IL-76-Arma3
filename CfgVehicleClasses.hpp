@@ -1,7 +1,7 @@
 class CfgVehicleClasses
 {
-	class wings_of_union
+	class IL_76_vehicle
 	{
-		displayName = "$STR_WU_NAME";
+		displayName = "ILYUSHIN IL-76";
 	};
 };

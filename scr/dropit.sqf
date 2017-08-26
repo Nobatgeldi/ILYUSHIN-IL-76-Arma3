@@ -33,7 +33,11 @@ _drop=.2;
 _delay=.01;
 
 _forceDrop = (getText (configFile >> "cfgVehicles" >> typeof _dropitem >> "simulation")=="House");
-if (("usebox" in _this) || ("USEBOX" in _this)) then {_forceDrop=true};
+if (("usebox" in _this) || ("USEBOX" in _this)) then
+{
+_forceDrop=true;
+};
+
 _velfact=.5;
 if (_forceDrop) then {
   _dropitem = "ReammoBox" createVehicle [0,0];

@@ -1,11 +1,10 @@
 
 #include "CfgPatches.hpp"
-//#include "CfgFactionClasses.hpp"
-//#include "CfgVehicleClasses.hpp"
+#include "CfgFactionClasses.hpp"
+#include "CfgVehicleClasses.hpp"
 #include "CfgMovesBasic.hpp"
 #include "CfgSounds.hpp"
 #include "CfgRadio.hpp"
-
 
 #define TEast 0
 #define TWest 1
@@ -23,7 +22,8 @@
 #define protected 1
 #define public 2
 
-enum {
+enum
+{
 	DESTRUCTENGINE = 2,
 	DESTRUCTDEFAULT = 6,
 	DESTRUCTWRECK = 7,
@@ -37,6 +37,7 @@ enum {
 	DESTRUCTMAN = 5,
 	DESTRUCTBUILDING = 1,
 };
+
 class CfgVehicles
 {
   class Air;
@@ -49,98 +50,99 @@ class CfgVehicles
     };
 	class il76td: Plane
 	{
-    scope=public;
-    destrType = "DestructWreck";
-		vehicleClass = "Air";
-		model="\il76td\il76td";
-		displayName="$STR_il76td_NAME1";
-		side=0;
-		faction = "OPF_F";
-		transportSoldier = 70;
-		crew = "O_Pilot_F";
-		driverAction="il_76_pilot";
-		cargoAction[]={"Truck_Cargo01"};
-    cargoIsCoDriver[] = {1,1};
-    hasGunner=1;
-		driverIsCommander = 1;
-		simulation="airplane";
-		_generalMacro="Plane";
-		gunnerAction = "il_76_commander"
-		gunnerOpticsModel = "\il76td\rkt_fencer_optics";
-		gunnerOpticsColor[] = {1, 1, 1, 1};
-		Icon = "\il76td\icons\icon.paa";
-		picture = "\il76td\icons\picture.paa";
-		mapSize = 50;
-		animated=1;
-		accuracy = 0.900000;
-		camouflage = 10;
-		audible = 30;
-		gearRetracting = true;
-		memoryPointCM[] = {"flare_L","flare_R"};
-		memoryPointCMDir[] = {"flare_L_dir","flare_R_dir"};
-		memoryPointsGetInCargo[]=
-		{
-			"flare_L_dir",
-			"flare_R_dir"
-		};
-		memoryPointsGetInCargoDir[]=
-		{
-			"flare_L",
-			"flare_R"
-		};
-		textplural="Airplanes";
-		textsingular="Airplane";
-		radartype=4;
-		memoryPointsGetInDriver = "pos_driver";
-		//memoryPointsGetInDriverDir = "pos_driver_dir";
-		class Library {
-			libTextDesc = "$STR_IL_DESCR";
-		};
-		class TransportBackpacks
-		{
-			class _xx_B_Parachute
-			{
-				backpack="B_Parachute";
-				count=60;
-			};
-		};
-		nameSound="plane";
-		soundEngine[]={"\il76td\sounds\XBAN13a.WAV", 4, 1.2};
-		soundEnviron[]={"sounds_f\air\Plane_Fighter_03\noise", db-60, 1.0};			// Cessna
-		soundLandCrash[]={"\il76td\sounds\tchl.wss", 8, 1.2, 1200};
-		soundServo[]={"il76td\sounds\beargrup.wav",db-10,1};			// Cessna
-		soundEngineOnInt[] = {"il76td\sounds\engine_on.wav", 0.562341, 1.000000};
-		soundEngineOnExt[] = {"il76td\sounds\engine_on.wav", 1.0, 1.000000, 900};
-		soundEngineOffInt[] = {"il76td\sounds\xnk8_shut.wav", 0.562341, 1.000000};
-		soundEngineOffExt[] = {"il76td\sounds\xnk8_shut.wav", 1.0, 1.000000, 900};
-    soundFlapsUp[]=
-    {
-      "A3\Sounds_F_EPC\CAS_02\Flaps_Up",
-      0.63095701,
-      1,
-      100
-    };
-    soundFlapsDown[]=
-    {
-      "A3\Sounds_F_EPC\CAS_02\Flaps_Down",
-      0.63095701,
-      1,
-      100
-    };
-    soundGearUp[]=
-    {
-      "A3\Sounds_F_EPC\CAS_02\gear_up",
-      0.79432797,
-      1,
-      150
-    };
-    soundGearDown[]=
-    {
-      "A3\Sounds_F_EPC\CAS_02\gear_down",
-      0.79432797,
-      1,
-      150
-    };
+        scope=public;
+        destrType = "DestructWreck";
+        vehicleClass = "IL_76_vehicle";
+        model="\il76td\il76td";
+        displayName="$STR_il76td_NAME1";
+        side=0;
+        faction = "IL_76_faction_TKM";
+        transportSoldier = 70;
+        crew = "O_Pilot_F";
+        driverAction="il_76_pilot";
+        cargoAction[]={"Truck_Cargo01"};
+        cargoIsCoDriver[] = {1,1};
+        hasGunner=1;
+        driverIsCommander = 1;
+        simulation="airplane";
+        _generalMacro="Plane";
+        gunnerAction = "il_76_commander"
+        gunnerOpticsModel = "";
+        gunnerOpticsColor[] = {1, 1, 1, 1};
+        Icon = "\il76td\icons\icon.paa";
+        picture = "\il76td\icons\picture.paa";
+        mapSize = 50;
+        animated=1;
+        accuracy = 0.900000;
+        camouflage = 10;
+        audible = 30;
+        gearRetracting = true;
+        memoryPointCM[] = {"flare_L","flare_R"};
+        memoryPointCMDir[] = {"flare_L_dir","flare_R_dir"};
+        textplural="Airplanes";
+        textsingular="Airplane";
+        radartype=4;
+
+        getInRadius=4.5;
+        memoryPointsGetInCargo     = "flare_L_dir";
+        memoryPointsGetInCoDriver  = "pos gunner";
+        memoryPointsGetInCommander = "pos gunner";
+        memoryPointsGetInDriver    = "pos gunner";
+        memoryPointsGetInGunner    = "pos gunner";
+        memoryPointsGetInCargo[]=
+        {
+            "flare_L_dir",
+            "flare_R_dir"
+        };
+        class Library
+        {
+            libTextDesc = "$STR_IL_DESCR";
+        };
+        class TransportBackpacks
+        {
+            class _xx_B_Parachute
+            {
+                backpack="B_Parachute";
+                count=60;
+            };
+        };
+        nameSound="plane";
+        soundEngine[]={"\il76td\sounds\XBAN13a.WAV", 4, 1.2};
+        soundEnviron[]={"sounds_f\air\Plane_Fighter_03\noise", db-60, 1.0};			// Cessna
+        soundLandCrash[]={"\il76td\sounds\tchl.wss", 8, 1.2, 1200};
+        soundServo[]={"il76td\sounds\beargrup.wav",db-10,1};			// Cessna
+        soundEngineOnInt[] = {"il76td\sounds\engine_on.wav", 0.562341, 1.000000};
+        soundEngineOnExt[] = {"il76td\sounds\engine_on.wav", 1.0, 1.000000, 900};
+        soundEngineOffInt[] = {"il76td\sounds\xnk8_shut.wav", 0.562341, 1.000000};
+        soundEngineOffExt[] = {"il76td\sounds\xnk8_shut.wav", 1.0, 1.000000, 900};
+        soundFlapsUp[]=
+        {
+          "A3\Sounds_F_EPC\CAS_02\Flaps_Up",
+          0.63095701,
+          1,
+          100
+        };
+        soundFlapsDown[]=
+        {
+          "A3\Sounds_F_EPC\CAS_02\Flaps_Down",
+          0.63095701,
+          1,
+          100
+        };
+        soundGearUp[]=
+        {
+          "A3\Sounds_F_EPC\CAS_02\gear_up",
+          0.79432797,
+          1,
+          150
+        };
+        soundGearDown[]=
+        {
+          "A3\Sounds_F_EPC\CAS_02\gear_down",
+          0.79432797,
+          1,
+          150
+        };
 		class Sounds
 		{
 			class EngineLowOut
@@ -251,18 +253,18 @@ class CfgVehicles
 				cone[]={3.1400001,3.9200001,2,0.2};
 			};
 		};
-    airBrake = true;
-    cabinOpening=true;
-    flaps = 1;
-    transportVehiclesCount=1;
-    transportVehiclesMass=50000;
+        airBrake = true;
+        cabinOpening=true;
+        flaps = 1;
+        transportVehiclesCount=1;
+        transportVehiclesMass=50000;
 		transportFuel=10000;
 		transportMaxBackpacks=100;
-    castCargoShadow=0;
-    castDriverShadow=0;
-    flapsFrictionCoef = 0.300000;
+        castCargoShadow=0;
+        castDriverShadow=0;
+        flapsFrictionCoef = 0.300000;
 		wheelSteeringSensitivity = 8.5;
-    noseDownCoef = 1.1;	// how much goes nose down during turns
+        noseDownCoef = 1.1;	// how much goes nose down during turns
 		maneuvrability=40.0;
 		landingAoa = "rad 2"//7*3.1415/180//"rad 55";
 		maxSpeed= 950;
@@ -359,14 +361,14 @@ class CfgVehicles
 				primaryGunner = 0;
 			};
 		};
-    class EventHandlers
-    {
-            Init = "_this execVM ""\il76td\scr\tires.sqf"", _this execVM ""\il76td\scr\common_init.sqf""";
-			// _this execVM ""\il76td\scr\damage.sqf"",
+        class EventHandlers
+        {
+            Init   = "_this execVM ""\il76td\scr\tires.sqf"", _this execVM ""\il76td\scr\common_init.sqf""";
+                    // _this execVM ""\il76td\scr\damage.sqf"",
             engine = "_this exec ""\il76td\scr\dverclose.sqs""";
-            fired = "_this call BIS_Effects_EH_Fired;";
-		    killed = "_this call BIS_Effects_EH_Killed;";
-    };
+            fired  = "_this call BIS_Effects_EH_Fired;";
+            killed = "_this call BIS_Effects_EH_Killed;";
+        };
 
 		class DestructionEffects {};
 
@@ -552,102 +554,79 @@ class CfgVehicles
 		   };
 		};
 
-    class AnimationSources : AnimationSources {
+        class AnimationSources : AnimationSources {
 
-			class HitGlass1 {
+			class HitGlass1
+			{
 				source = "Hit";
 				hitpoint = "HitGlass1";
 				raw = 1;
 			};
-
-			class HitGlass2 : HitGlass1 {
+			class HitGlass2 : HitGlass1
+			{
 				hitpoint = "HitGlass2";
 			};
-
-			class HitGlass3 : HitGlass1 {
+			class HitGlass3 : HitGlass1
+			{
 				hitpoint = "HitGlass3";
 			};
-
-			class HitGlass4 : HitGlass1 {
+			class HitGlass4 : HitGlass1
+			{
 				hitpoint = "HitGlass4";
 			};
-
-      class HitGlass5 : HitGlass1 {
+            class HitGlass5 : HitGlass1
+            {
 				hitpoint = "HitGlass5";
 			};
-
-			/*class HitGlass6 : HitGlass1 {
-				hitpoint = "HitGlass6";
-			};*/
-			class Doors {
+			class Doors
+			{
 				source = "user";
 				animPeriod = 4;
 				initPhase = 0;
 			};
-			class Doors1 {
+			class Doors1
+			{
 				source = "user";
 				animPeriod = 4;
 				initPhase = 0;
 			};
-			class Doors2 {
+			class Doors2
+			{
 				source = "user";
 				animPeriod = 2;
 				initPhase = 0;
 			};
-			class Doors3 {
+			class Doors3
+			{
 				source = "user";
 				animPeriod = 4;
 				initPhase = 0;
 			};
-			class Doors4 {
+			class Doors4
+			{
 				source = "user";
 				animPeriod = 4;
 				initPhase = 0;
 			};
-			class dver1 {
+			class dver1
+			{
 				source = "user";
 				animPeriod = 1;
 				initPhase = 0;
 			};
-			class dver2 {
+			class dver2
+			{
 				source = "user";
 				animPeriod = 1;
 				initPhase = 0;
 			};
-			class ladder {
+			class ladder
+			{
 				source = "user";
 				animPeriod = 1;
 				initPhase = 0;
 			};
-
-			/*class vrtule0 {
-				source = "user";
-				animPeriod = 0.5;
-				initPhase = 0;
-			};
-			class vrtule1 {
-				source = "user";
-				animPeriod = 0.5;
-				initPhase = 0;
-			};
-			class vrtule2 {
-				source = "user";
-				animPeriod = 0.5;
-				initPhase = 0;
-			};
-			class vrtule3 {
-				source = "user";
-				animPeriod = 0.5;
-				initPhase = 0;
-			};*/
 		};
-      /*class Damage {
-			tex[] = {};
-			mat[] = {"il76td\su34_skla.rvmat","il76td\glass_damage.rvmat","il76td\glass_damage.rvmat",
-					 "il76td\su34_skla_in.rvmat","il76td\glass_in_damage.rvmat","il76td\glass_in_damage.rvmat"
-			};
-		};*/
-
 
 		// Radar stuff
 		irTarget=true;
@@ -672,7 +651,6 @@ class CfgVehicles
 
 			class closedoor
 			{
-
 				displayName="$STR_il76td_UR";
 				position="dor";
 				radius = 19.6;
@@ -681,10 +659,9 @@ class CfgVehicles
 				condition = "this animationPhase ""RC_door"" > 0.5 AND Alive(this)";
 				statement = "[this] exec ""\il76td\scr\Rampclose.sqs""";
 
-        		};
+        	};
 
-      class opendver
-
+            class opendver
 			{
 				displayName="$STR_il76td_OD";
 				position="pos driver";
@@ -694,7 +671,6 @@ class CfgVehicles
 				condition = "this animationPhase ""RC_dver1"" < 0.5 AND Alive(this)";
 				statement = "[this] exec ""\il76td\scr\dveropen.sqs""";
 			};
-
 			class closedver
 			{
 				displayName="$STR_il76td_CD";
@@ -706,7 +682,7 @@ class CfgVehicles
 				statement = "[this] exec ""\il76td\scr\dverclose.sqs""";
 			};
 
-      class openladder
+            class openladder
 			{
 				displayName="$STR_il76td_DL";
 				position="pos driver";
@@ -725,8 +701,8 @@ class CfgVehicles
 				onlyForplayer = 0;
 				condition = "this animationPhase ""RC_ladder"" > 0.5 AND Alive(this)";
 				statement = "[this] exec ""\il76td\scr\ladderup.sqs""";
-      };
-		  class loadcargo
+            };
+		    class loadcargo
 			{
 				onlyforplayer = false;
 				displayName = "$STR_il76td_LC";
@@ -768,41 +744,34 @@ class CfgVehicles
 				statement="[this, player] execVM ""\il76td\scr\paragroup.sqf""";
 			};
 
-			/*class exchangeseats
-			{
-				onlyforplayer = false;
-				displayName="$STR_il76td_ES";
-				position="pos driver";
-				radius=30;
-				condition = "(player in this) and ((player == (gunner this)) or (player == (driver this)))";
-				statement="[this, (driver this), (gunner this)] execVM ""\il76td\scr\exchangeseats.sqf""";
-			};*/
  		};
 	};
 	class il76td_BBC_blue : il76td
 	{
-		faction = "OPF_F";
+		faction = "IL_76_faction_RUS";
 		displayName="$STR_il76td_NAME7";
-		hiddenSelections[]={
-								"e1_t",
-								"e2_t",
-								"f2_t",
-								"f3_t",
-								"t1_t",
-								"w1_t"
-							};
-		hiddenSelectionsTextures[] = 	{
-											"\il76td\liveries\BBC_blue\e1_t.paa",
-											"\il76td\liveries\BBC_blue\e2_t.paa",
-											"\il76td\liveries\BBC_blue\f2_t.paa",
-											"\il76td\liveries\BBC_blue\f3_t.paa",
-											"\il76td\liveries\BBC_blue\t1_t.paa",
-											"\il76td\liveries\BBC_blue\w1_t.paa"
-										};
+		hiddenSelections[]=
+		{
+            "e1_t",
+            "e2_t",
+            "f2_t",
+            "f3_t",
+            "t1_t",
+            "w1_t"
+        };
+		hiddenSelectionsTextures[] =
+		{
+            "\il76td\liveries\BBC_blue\e1_t.paa",
+            "\il76td\liveries\BBC_blue\e2_t.paa",
+            "\il76td\liveries\BBC_blue\f2_t.paa",
+            "\il76td\liveries\BBC_blue\f3_t.paa",
+            "\il76td\liveries\BBC_blue\t1_t.paa",
+            "\il76td\liveries\BBC_blue\w1_t.paa"
+        };
 	};
 	class il76td_RussianAirForce : il76td
 	{
-		faction = "OPF_F";
+		faction = "IL_76_faction_RUS";
 		displayName="$STR_il76td_NAME29";
 		hiddenSelections[]={
 								"e1_t",
@@ -823,7 +792,7 @@ class CfgVehicles
 	};
 	class il76td_3077 : il76td
 	{
-		faction = "OPF_F";
+		faction = "IL_76_faction_IND";
 		displayName="$STR_il76td_NAME16";
 		hiddenSelections[]={
 								"e1_t",
@@ -844,7 +813,7 @@ class CfgVehicles
 	};
 	class il76td_78840 : il76td
 	{
-		faction = "OPF_F";
+		faction = "IL_76_faction_RUS";
 		displayName="$STR_il76td_NAME6";
 		hiddenSelections[]={
 								"e1_t",
@@ -863,609 +832,16 @@ class CfgVehicles
 											"\il76td\liveries\78840\w1_t.paa"
 										};
 	};
-
-    /*
-	class il76td_76413 : il76td
-	{
-		faction = "CIV_UA";
-		displayName="$STR_il76td_NAME2";
-		hiddenSelections[]={
-								"e1_t",
-								"e2_t",
-								"f2_t",
-								"f3_t",
-								"t1_t",
-								"w1_t"
-							};
-		hiddenSelectionsTextures[] = 	{
-											"\il76td\liveries\76413\e1_t.paa",
-											"\il76td\liveries\76413\e2_t.paa",
-											"\il76td\liveries\76413\f2_t.paa",
-											"\il76td\liveries\76413\f3_t.paa",
-											"\il76td\liveries\76413\t1_t.paa",
-											"\il76td\liveries\76413\w1_t.paa"
-										};
-	};
-
-	class il76td_76482 : il76td
-	{
-		faction = "CIV_SU";
-		displayName="$STR_il76td_NAME3";
-		hiddenSelections[]={
-								"e1_t",
-								"e2_t",
-								"f2_t",
-								"f3_t",
-								"t1_t",
-								"w1_t"
-							};
-		hiddenSelectionsTextures[] = 	{
-											"\il76td\liveries\76482\e1_t.paa",
-											"\il76td\liveries\76482\e2_t.paa",
-											"\il76td\liveries\76482\f2_t.paa",
-											"\il76td\liveries\76482\f3_t.paa",
-											"\il76td\liveries\76482\t1_t.paa",
-											"\il76td\liveries\76482\w1_t.paa"
-										};
-	};
-	class il76td_76500 : il76td
-	{
-		faction = "CIV_SU";
-		displayName="$STR_il76td_NAME4";
-		hiddenSelections[]={
-								"e1_t",
-								"e2_t",
-								"f2_t",
-								"f3_t",
-								"t1_t",
-								"w1_t"
-							};
-		hiddenSelectionsTextures[] = 	{
-											"\il76td\liveries\76500\e1_t.paa",
-											"\il76td\liveries\76500\e2_t.paa",
-											"\il76td\liveries\76500\f2_t.paa",
-											"\il76td\liveries\76500\f3_t.paa",
-											"\il76td\liveries\76500\t1_t.paa",
-											"\il76td\liveries\76500\w1_t.paa"
-										};
-	};
-
-	class il76td_76501 : il76td
-	{
-		faction = "CIV_SU";
-		displayName="$STR_il76td_NAME5";
-		hiddenSelections[]={
-								"e1_t",
-								"e2_t",
-								"f2_t",
-								"f3_t",
-								"t1_t",
-								"w1_t"
-							};
-		hiddenSelectionsTextures[] = 	{
-											"\il76td\liveries\76501\e1_t.paa",
-											"\il76td\liveries\76501\e2_t.paa",
-											"\il76td\liveries\76501\f2_t.paa",
-											"\il76td\liveries\76501\f3_t.paa",
-											"\il76td\liveries\76501\t1_t.paa",
-											"\il76td\liveries\76501\w1_t.paa"
-										};
-	};
-
-	class il76td_BELORUSSIA : il76td
-	{
-		faction = "CIV_BL";
-		displayName="$STR_il76td_NAME8";
-		hiddenSelections[]={
-								"e1_t",
-								"e2_t",
-								"f2_t",
-								"f3_t",
-								"t1_t",
-								"w1_t"
-							};
-		hiddenSelectionsTextures[] = 	{
-											"\il76td\liveries\BELORUSSIA\e1_t.paa",
-											"\il76td\liveries\BELORUSSIA\e2_t.paa",
-											"\il76td\liveries\BELORUSSIA\f2_t.paa",
-											"\il76td\liveries\BELORUSSIA\f3_t.paa",
-											"\il76td\liveries\BELORUSSIA\t1_t.paa",
-											"\il76td\liveries\BELORUSSIA\w1_t.paa"
-										};
-	};
-
-	class il76td_KJC2 : il76td
-	{
-		faction = "CIV_RU";
-		displayName="$STR_il76td_NAME9";
-		hiddenSelections[]={
-								"e1_t",
-								"e2_t",
-								"f2_t",
-								"f3_t",
-								"t1_t",
-								"w1_t"
-							};
-		hiddenSelectionsTextures[] = 	{
-											"\il76td\liveries\KJC2\e1_t.paa",
-											"\il76td\liveries\KJC2\e2_t.paa",
-											"\il76td\liveries\KJC2\f2_t.paa",
-											"\il76td\liveries\KJC2\f3_t.paa",
-											"\il76td\liveries\KJC2\t1_t.paa",
-											"\il76td\liveries\KJC2\w1_t.paa"
-										};
-	};
-
-	class il76td_KJC3 : il76td
-	{
-		faction = "CIV_RU";
-		displayName="$STR_il76td_NAME10";
-		hiddenSelections[]={
-								"e1_t",
-								"e2_t",
-								"f2_t",
-								"f3_t",
-								"t1_t",
-								"w1_t"
-							};
-		hiddenSelectionsTextures[] = 	{
-											"\il76td\liveries\KJC3\e1_t.paa",
-											"\il76td\liveries\KJC3\e2_t.paa",
-											"\il76td\liveries\KJC3\f2_t.paa",
-											"\il76td\liveries\KJC3\f3_t.paa",
-											"\il76td\liveries\KJC3\t1_t.paa",
-											"\il76td\liveries\KJC3\w1_t.paa"
-										};
-	};
-
-	class il76td_mld : il76td
-	{
-		faction = "CIV_IR";
-		displayName="$STR_il76td_NAME11";
-		hiddenSelections[]={
-								"e1_t",
-								"e2_t",
-								"f2_t",
-								"f3_t",
-								"t1_t",
-								"w1_t"
-							};
-		hiddenSelectionsTextures[] = 	{
-											"\il76td\liveries\mld\e1_t.paa",
-											"\il76td\liveries\mld\e2_t.paa",
-											"\il76td\liveries\mld\f2_t.paa",
-											"\il76td\liveries\mld\f3_t.paa",
-											"\il76td\liveries\mld\t1_t.paa",
-											"\il76td\liveries\mld\w1_t.paa"
-										};
-	};
-
-	class il76td_sam : il76td
-	{
-		faction = "CIV_RU";
-		displayName="$STR_il76td_NAME12";
-		hiddenSelections[]={
-								"e1_t",
-								"e2_t",
-								"f2_t",
-								"f3_t",
-								"t1_t",
-								"w1_t"
-							};
-		hiddenSelectionsTextures[] = 	{
-											"\il76td\liveries\sam\e1_t.paa",
-											"\il76td\liveries\sam\e2_t.paa",
-											"\il76td\liveries\sam\f2_t.paa",
-											"\il76td\liveries\sam\f3_t.paa",
-											"\il76td\liveries\sam\t1_t.paa",
-											"\il76td\liveries\sam\w1_t.paa"
-										};
-	};
-
-	class il76td_samold : il76td
-	{
-		faction = "CIV_RU";
-		displayName="$STR_il76td_NAME13";
-		hiddenSelections[]={
-								"e1_t",
-								"e2_t",
-								"f2_t",
-								"f3_t",
-								"t1_t",
-								"w1_t"
-							};
-		hiddenSelectionsTextures[] = 	{
-											"\il76td\liveries\samold\e1_t.paa",
-											"\il76td\liveries\samold\e2_t.paa",
-											"\il76td\liveries\samold\f2_t.paa",
-											"\il76td\liveries\samold\f3_t.paa",
-											"\il76td\liveries\samold\t1_t.paa",
-											"\il76td\liveries\samold\w1_t.paa"
-										};
-	};
-
-	class il76td_UVAUGA : il76td
-	{
-		faction = "CIV_SU";
-		displayName="$STR_il76td_NAME14";
-		hiddenSelections[]={
-								"e1_t",
-								"e2_t",
-								"f2_t",
-								"f3_t",
-								"t1_t",
-								"w1_t"
-							};
-		hiddenSelectionsTextures[] = 	{
-											"\il76td\liveries\UVAUGA\e1_t.paa",
-											"\il76td\liveries\UVAUGA\e2_t.paa",
-											"\il76td\liveries\UVAUGA\f2_t.paa",
-											"\il76td\liveries\UVAUGA\f3_t.paa",
-											"\il76td\liveries\UVAUGA\t1_t.paa",
-											"\il76td\liveries\UVAUGA\w1_t.paa"
-										};
-	};
-
-	class il76td_vvs : il76td
-	{
-		faction = "CIV_RU";
-		displayName="$STR_il76td_NAME15";
-		hiddenSelections[]={
-								"e1_t",
-								"e2_t",
-								"f2_t",
-								"f3_t",
-								"t1_t",
-								"w1_t"
-							};
-		hiddenSelectionsTextures[] = 	{
-											"\il76td\liveries\vvs\e1_t.paa",
-											"\il76td\liveries\vvs\e2_t.paa",
-											"\il76td\liveries\vvs\f2_t.paa",
-											"\il76td\liveries\vvs\f3_t.paa",
-											"\il76td\liveries\vvs\t1_t.paa",
-											"\il76td\liveries\vvs\w1_t.paa"
-										};
-	};
-
-	class il76td_76352 : il76td
-	{
-		faction = "CIV_UN";
-		displayName="$STR_il76td_NAME17";
-		hiddenSelections[]={
-								"e1_t",
-								"e2_t",
-								"f2_t",
-								"f3_t",
-								"t1_t",
-								"w1_t"
-							};
-		hiddenSelectionsTextures[] = 	{
-											"\il76td\liveries\76352\e1_t.paa",
-											"\il76td\liveries\76352\e2_t.paa",
-											"\il76td\liveries\76352\f2_t.paa",
-											"\il76td\liveries\76352\f3_t.paa",
-											"\il76td\liveries\76352\t1_t.paa",
-											"\il76td\liveries\76352\w1_t.paa"
-										};
-	};
-
-	class il76td_76363 : il76td
-	{
-		faction = "CIV_RU";
-		displayName="$STR_il76td_NAME18";
-		hiddenSelections[]={
-								"e1_t",
-								"e2_t",
-								"f2_t",
-								"f3_t",
-								"t1_t",
-								"w1_t"
-							};
-		hiddenSelectionsTextures[] = 	{
-											"\il76td\liveries\76363\e1_t.paa",
-											"\il76td\liveries\76363\e2_t.paa",
-											"\il76td\liveries\76363\f2_t.paa",
-											"\il76td\liveries\76363\f3_t.paa",
-											"\il76td\liveries\76363\t1_t.paa",
-											"\il76td\liveries\76363\w1_t.paa"
-										};
-	};
-
-	class il76td_76386 : il76td
-	{
-		faction = "CIV_UN";
-		displayName="$STR_il76td_NAME19";
-		hiddenSelections[]={
-								"e1_t",
-								"e2_t",
-								"f2_t",
-								"f3_t",
-								"t1_t",
-								"w1_t"
-							};
-		hiddenSelectionsTextures[] = 	{
-											"\il76td\liveries\76386\e1_t.paa",
-											"\il76td\liveries\76386\e2_t.paa",
-											"\il76td\liveries\76386\f2_t.paa",
-											"\il76td\liveries\76386\f3_t.paa",
-											"\il76td\liveries\76386\t1_t.paa",
-											"\il76td\liveries\76386\w1_t.paa"
-										};
-	};
-
-	class il76td_76401 : il76td
-	{
-		faction = "CIV_RU";
-		displayName="$STR_il76td_NAME20";
-		hiddenSelections[]={
-								"e1_t",
-								"e2_t",
-								"f2_t",
-								"f3_t",
-								"t1_t",
-								"w1_t"
-							};
-		hiddenSelectionsTextures[] = 	{
-											"\il76td\liveries\76401\e1_t.paa",
-											"\il76td\liveries\76401\e2_t.paa",
-											"\il76td\liveries\76401\f2_t.paa",
-											"\il76td\liveries\76401\f3_t.paa",
-											"\il76td\liveries\76401\t1_t.paa",
-											"\il76td\liveries\76401\w1_t.paa"
-										};
-	};
-
-	class il76td_76409 : il76td
-	{
-		faction = "CIV_RU";
-		displayName="$STR_il76td_NAME21";
-		hiddenSelections[]={
-								"e1_t",
-								"e2_t",
-								"f2_t",
-								"f3_t",
-								"t1_t",
-								"w1_t"
-							};
-		hiddenSelectionsTextures[] = 	{
-											"\il76td\liveries\76409\e1_t.paa",
-											"\il76td\liveries\76409\e2_t.paa",
-											"\il76td\liveries\76409\f2_t.paa",
-											"\il76td\liveries\76409\f3_t.paa",
-											"\il76td\liveries\76409\t1_t.paa",
-											"\il76td\liveries\76409\w1_t.paa"
-										};
-	};
-
-	class il76td_76420 : il76td
-	{
-		faction = "CIV_RU";
-		displayName="$STR_il76td_NAME22";
-		hiddenSelections[]={
-								"e1_t",
-								"e2_t",
-								"f2_t",
-								"f3_t",
-								"t1_t",
-								"w1_t"
-							};
-		hiddenSelectionsTextures[] = 	{
-											"\il76td\liveries\76420\e1_t.paa",
-											"\il76td\liveries\76420\e2_t.paa",
-											"\il76td\liveries\76420\f2_t.paa",
-											"\il76td\liveries\76420\f3_t.paa",
-											"\il76td\liveries\76420\t1_t.paa",
-											"\il76td\liveries\76420\w1_t.paa"
-										};
-	};
-
-	class il76td_76524 : il76td
-	{
-		faction = "CIV_UN";
-		displayName="$STR_il76td_NAME23";
-		hiddenSelections[]={
-								"e1_t",
-								"e2_t",
-								"f2_t",
-								"f3_t",
-								"t1_t",
-								"w1_t"
-							};
-		hiddenSelectionsTextures[] = 	{
-											"\il76td\liveries\76524\e1_t.paa",
-											"\il76td\liveries\76524\e2_t.paa",
-											"\il76td\liveries\76524\f2_t.paa",
-											"\il76td\liveries\76524\f3_t.paa",
-											"\il76td\liveries\76524\t1_t.paa",
-											"\il76td\liveries\76524\w1_t.paa"
-										};
-	};
-
-	class il76td_78779 : il76td
-	{
-		faction = "CIV_BL";
-		displayName="$STR_il76td_NAME24";
-		hiddenSelections[]={
-								"e1_t",
-								"e2_t",
-								"f2_t",
-								"f3_t",
-								"t1_t",
-								"w1_t"
-							};
-		hiddenSelectionsTextures[] = 	{
-											"\il76td\liveries\78779\e1_t.paa",
-											"\il76td\liveries\78779\e2_t.paa",
-											"\il76td\liveries\78779\f2_t.paa",
-											"\il76td\liveries\78779\f3_t.paa",
-											"\il76td\liveries\78779\t1_t.paa",
-											"\il76td\liveries\78779\w1_t.paa"
-										};
-	};
-
-	class il76td_Dal : il76td
-	{
-		faction = "CIV_RU";
-		displayName="$STR_il76td_NAME25";
-		hiddenSelections[]={
-								"e1_t",
-								"e2_t",
-								"f2_t",
-								"f3_t",
-								"t1_t",
-								"w1_t"
-							};
-		hiddenSelectionsTextures[] = 	{
-											"\il76td\liveries\Dal\e1_t.paa",
-											"\il76td\liveries\Dal\e2_t.paa",
-											"\il76td\liveries\Dal\f2_t.paa",
-											"\il76td\liveries\Dal\f3_t.paa",
-											"\il76td\liveries\Dal\t1_t.paa",
-											"\il76td\liveries\Dal\w1_t.paa"
-										};
-	};
-
-	class il76td_EP_MAH : il76td
-	{
-		faction = "CIV_IR";
-		displayName="$STR_il76td_NAME26";
-		hiddenSelections[]={
-								"e1_t",
-								"e2_t",
-								"f2_t",
-								"f3_t",
-								"t1_t",
-								"w1_t"
-							};
-		hiddenSelectionsTextures[] = 	{
-											"\il76td\liveries\EP-MAH\e1_t.paa",
-											"\il76td\liveries\EP-MAH\e2_t.paa",
-											"\il76td\liveries\EP-MAH\f2_t.paa",
-											"\il76td\liveries\EP-MAH\f3_t.paa",
-											"\il76td\liveries\EP-MAH\t1_t.paa",
-											"\il76td\liveries\EP-MAH\w1_t.paa"
-										};
-	};
-
-	class il76td_EP_TQI : il76td
-	{
-		faction = "CIV_IR";
-		displayName="$STR_il76td_NAME27";
-		hiddenSelections[]={
-								"e1_t",
-								"e2_t",
-								"f2_t",
-								"f3_t",
-								"t1_t",
-								"w1_t"
-							};
-		hiddenSelectionsTextures[] = 	{
-											"\il76td\liveries\EP-TQI\e1_t.paa",
-											"\il76td\liveries\EP-TQI\e2_t.paa",
-											"\il76td\liveries\EP-TQI\f2_t.paa",
-											"\il76td\liveries\EP-TQI\f3_t.paa",
-											"\il76td\liveries\EP-TQI\t1_t.paa",
-											"\il76td\liveries\EP-TQI\w1_t.paa"
-										};
-	};
-
-	class il76td_KZK : il76td
-	{
-		faction = "CIV_KZ";
-		displayName="$STR_il76td_NAME28";
-		hiddenSelections[]={
-								"e1_t",
-								"e2_t",
-								"f2_t",
-								"f3_t",
-								"t1_t",
-								"w1_t"
-							};
-		hiddenSelectionsTextures[] = 	{
-											"\il76td\liveries\KZK\e1_t.paa",
-											"\il76td\liveries\KZK\e2_t.paa",
-											"\il76td\liveries\KZK\f2_t.paa",
-											"\il76td\liveries\KZK\f3_t.paa",
-											"\il76td\liveries\KZK\t1_t.paa",
-											"\il76td\liveries\KZK\w1_t.paa"
-										};
-	};
-	class il76td_TIS : il76td
-	{
-		faction = "CIV_RU";
-		displayName="$STR_il76td_NAME30";
-		hiddenSelections[]={
-								"e1_t",
-								"e2_t",
-								"f2_t",
-								"f3_t",
-								"t1_t",
-								"w1_t"
-							};
-		hiddenSelectionsTextures[] = 	{
-											"\il76td\liveries\TIS\e1_t.paa",
-											"\il76td\liveries\TIS\e2_t.paa",
-											"\il76td\liveries\TIS\f2_t.paa",
-											"\il76td\liveries\TIS\f3_t.paa",
-											"\il76td\liveries\TIS\t1_t.paa",
-											"\il76td\liveries\TIS\w1_t.paa"
-										};
-	};
-
-	class il76td_uzb : il76td
-	{
-		faction = "CIV_UZ";
-		displayName="$STR_il76td_NAME31";
-		hiddenSelections[]={
-								"e1_t",
-								"e2_t",
-								"f2_t",
-								"f3_t",
-								"t1_t",
-								"w1_t"
-							};
-		hiddenSelectionsTextures[] = 	{
-											"\il76td\liveries\uzb\e1_t.paa",
-											"\il76td\liveries\uzb\e2_t.paa",
-											"\il76td\liveries\uzb\f2_t.paa",
-											"\il76td\liveries\uzb\f3_t.paa",
-											"\il76td\liveries\uzb\t1_t.paa",
-											"\il76td\liveries\uzb\w1_t.paa"
-										};
-	};
-
-	class il76td_YK_ATB : il76td
-	{
-		faction = "CIV_SY";
-		displayName="$STR_il76td_NAME32";
-		hiddenSelections[]={
-								"e1_t",
-								"e2_t",
-								"f2_t",
-								"f3_t",
-								"t1_t",
-								"w1_t"
-							};
-		hiddenSelectionsTextures[] = 	{
-											"\il76td\liveries\YK-ATB\e1_t.paa",
-											"\il76td\liveries\YK-ATB\e2_t.paa",
-											"\il76td\liveries\YK-ATB\f2_t.paa",
-											"\il76td\liveries\YK-ATB\f3_t.paa",
-											"\il76td\liveries\YK-ATB\t1_t.paa",
-											"\il76td\liveries\YK-ATB\w1_t.paa"
-										};
-	};
-*/
 	class PlaneWreck
-	{
-		scope = 1;
-	};
+    {
+        scope = 1;
+    };
 	class il76td_MRWreck: PlaneWreck
 	{
 		scope = 1;
 		side=0;
-		class Armory {
+		class Armory
+		{
 			disabled = 1;
 		};
 		model = "\il76td\il76Wreck.p3d";
@@ -1476,5 +852,4 @@ class CfgVehicles
 		transportFuel = 0;
 		transportSoldier = 1;
 	};
-
 };
